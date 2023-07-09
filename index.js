@@ -32,7 +32,7 @@ search.addEventListener('click',()=>{
         const description=document.querySelector('.weather-box .description');
         const humidity=document.querySelector('.weather-details .humidity span')
         const wind=document.querySelector('.weather-details .wind span')
-       //  console.log(json.weather);
+        console.log(json.weather);
         switch(json.weather[0].main){
            case 'Clear':
             image.src ='images/clear.png';
@@ -57,10 +57,10 @@ search.addEventListener('click',()=>{
             default:
                 image.src='';
         }
-         temperature.innerHTML=`${parseInt(json.main.temp)}<span>°c</span>`;
+         temperature.innerHTML=`${(parseInt(json.main.temp)-273)}<span>°c</span>`;
          description.innerHTML=`${json.weather[0].description}`;
          humidity.innerHTML=`${json.main.humidity}%`;
-         wind.innerHTML=`${parseInt(json.wind.speed)}Km/h`;
+         wind.innerHTML=`${(parseInt(json.wind.speed)*3.6)}Km/h`;
 
          weatherBox.style.display='';
          weatherDetails.style.display='';
